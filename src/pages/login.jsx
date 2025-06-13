@@ -1,3 +1,106 @@
+// "use client";
+
+// import axios from "axios";
+// import Link from "next/link";
+// import { useRouter } from "next/navigation";
+// import { useEffect, useState } from "react";
+
+// export default function Login() {
+//   const router = useRouter();
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [loading, setLoading] = useState(false);
+//   const [errorMsg, setErrorMsg] = useState("");
+
+//   useEffect(() => {
+//     const manualToken = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+//     if (manualToken) router.push("/dashboard");
+//   }, []);
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setLoading(true);
+//     setErrorMsg("");
+
+//     try {
+//       const response = await axios.post("/api/login", { email, password });
+//       const { token } = response.data;
+//       localStorage.setItem("token", token);
+//       localStorage.setItem("email", email);
+//       router.push("/dashboard");
+//     } catch (error) {
+//       setErrorMsg(error?.response?.data?.error || "Login failed. Please try again.");
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   return (
+//     <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 px-4">
+//       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 space-y-6">
+//         <h2 className="text-3xl font-bold text-center text-gray-800">Welcome Back</h2>
+//         <p className="text-sm text-center text-gray-500">Sign in to your account</p>
+
+//         <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+//           <div>
+//             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+//               Email Address
+//             </label>
+//             <input
+//               id="email"
+//               type="email"
+//               required
+//               value={email}
+//               onChange={(e) => setEmail(e.target.value)}
+//               placeholder="you@example.com"
+//               autoComplete="email"
+//               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+//             />
+//           </div>
+
+//           <div>
+//             <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+//               Password
+//             </label>
+//             <input
+//               id="password"
+//               type="password"
+//               required
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//               placeholder="••••••••"
+//               autoComplete="current-password"
+//               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+//             />
+//           </div>
+
+//           {errorMsg && <p className="text-sm text-red-600 mt-1">{errorMsg}</p>}
+
+//           <button
+//             type="submit"
+//             disabled={loading || !email || !password}
+//             className={`w-full py-3 rounded-lg text-white font-semibold transition-all duration-300 ${
+//               loading || !email || !password
+//                 ? "bg-gray-400 cursor-not-allowed"
+//                 : "bg-blue-600 hover:bg-blue-700 shadow hover:shadow-md"
+//             }`}
+//           >
+//             {loading ? "Signing in..." : "Sign In"}
+//           </button>
+//         </form>
+
+//         <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+//           <span>Don&apos;t have an account?</span>
+//           <Link href="/signup" className="text-blue-600 hover:underline">
+//             Sign up
+//           </Link>
+//         </div>
+//       </div>
+//     </main>
+//   );
+// }
+
+
 "use client";
 
 import axios from "axios";
@@ -26,7 +129,7 @@ export default function Login() {
     try {
       const response = await axios.post("/api/login", { email, password });
       const { token } = response.data;
-      localStorage.setItem("token", token);
+      //localStorage.setItem("token", token);
       localStorage.setItem("email", email);
       router.push("/dashboard");
     } catch (error) {
