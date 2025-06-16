@@ -430,7 +430,7 @@ export default function SignUp() {
         throw new Error(data.error || 'OTP verification failed');
       }
 
-      const res2 = await fetch('/api/signup', {
+      const res2 = await fetch('/api/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
