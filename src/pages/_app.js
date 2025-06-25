@@ -1,7 +1,7 @@
 // pages/_app.js
-import Footer from "@/components/ui/Footer";
-import Navbar from "@/components/ui/Navbar";
-import WatermarkBackground from "@/components/ui/WatermarkBackground";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+//import WatermarkBackground from "@/components/WatermarkBackground";
 import { PointsProvider } from "@/context/PointContext";
 import "@/styles/globals.css";
 
