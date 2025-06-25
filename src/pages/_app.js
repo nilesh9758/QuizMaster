@@ -7,7 +7,6 @@ import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   return (
-    <WatermarkBackground>
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-1">
@@ -17,6 +16,5 @@ export default function App({ Component, pageProps }) {
         </main>
         <Footer />
       </div>
-    </WatermarkBackground>
   );
 }
