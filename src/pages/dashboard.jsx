@@ -248,6 +248,7 @@ import { CheckCircle, CreditCard, FileText, History, Sparkles, Ticket, Upload } 
 import { useRouter } from 'next/navigation';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
+import CryptoJS from "crypto-js";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -362,7 +363,9 @@ export default function Dashboard() {
       });
 
       await axios.post(`/api/deductTicket?email=${email}`);
-      localStorage.setItem('mcqs', JSON.stringify(data.mcqs));
+      const encryptedMcqs = CryptoJS.AES.encrypt(JSON.stringify(data.mcqs), process.env.NEXT_PUBLIC_MCQSECRET).toString();
+      localStorage.setItem("mcqs", encryptedMcqs);
+      //localStorage.setItem('mcqs', JSON.stringify(data.mcqs));
       router.replace('/test');
     } catch (err) {
       console.error('MCQ error:', err);
@@ -637,3 +640,4 @@ export default function Dashboard() {
     </>
   );
 }
+
