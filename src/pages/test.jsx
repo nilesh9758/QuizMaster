@@ -169,8 +169,8 @@
 
 
 "use client";
-import QuestionTimer from "@/components/ui/QuestionTimer";
-import Results from "@/components/ui/Results";
+import QuestionTimer from "@/components/QuestionTimer";
+import Results from "@/components/Results";
 import { usePoints } from "@/context/PointContext";
 import CryptoJS from "crypto-js";
 import { useRouter } from "next/navigation";
