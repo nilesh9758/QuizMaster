@@ -6,6 +6,7 @@ import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import CryptoJS from "crypto-js";
 //import mcqs from "/mcqs.json"; // Import the MCQs data
 
 const Results = ({
