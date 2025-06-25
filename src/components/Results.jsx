@@ -6,7 +6,7 @@ import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import mcqs from "/mcqs.json"; // Import the MCQs data
+//import mcqs from "/mcqs.json"; // Import the MCQs data
 
 const Results = ({
   score,
@@ -37,6 +37,8 @@ const Results = ({
   
 const handleGoToDashboard = async () => {
   const email = localStorage.getItem("email"); // Retrieve email from localStorage
+  const decryptedBytes = CryptoJS.AES.decrypt(localStorage.getItem("mcqs"),  process.env.NEXT_PUBLIC_MCQSECRET);
+  const mcqs = JSON.parse(decryptedBytes.toString(CryptoJS.enc.Utf8));
   try {
     const response = await axios.post("/api/saveMcqs", {
       email,
